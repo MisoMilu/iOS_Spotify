@@ -3,6 +3,7 @@ import Playgrounds
 
 // Contentview: is the loading screen. starting point of program. dont delete this
 struct ContentView: View {
+    @State private var time: Double = 0
     var body: some View {
         //Build all of spotify in here
         ZStack{
@@ -17,7 +18,7 @@ struct ContentView: View {
                         .bold()
                     Image(systemName:"ellipsis")
                 }
-                
+            
                 Image("natsukusa")
                     // allow resize
                     .resizable()
@@ -28,22 +29,32 @@ struct ContentView: View {
                     .shadow(radius: 10)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
-                
-                HStack{
-                    VStack(alignment: .leading){
-                        Text("夏陰、ピアノを弾く")
-                            .font(.title2)
-                            .bold()
+                VStack{
+                    HStack{
+                        VStack(alignment: .leading){
+                            Text("夏陰、ピアノを弾く")
+                                .font(.title2)
+                                .bold()
 
-                        Text("Yorushika")
-                            .font(.caption)
+                            Text("Yorushika")
+                                .font(.caption)
+                        }
+                        Spacer()
+                        Image(systemName: "plus.circle")
+                            .font(.title)
+                        
+                    }.padding(.leading, 10)
+                    VStack {
+                        // $ means give me a CONNECTION to progress
+                        Slider(value: $time, in: 0...92)
+                        // tint means make the slider's accent part white
+                            .tint(.white)
+                        Text("\(time) seconds is \(time/60) minutes and \(time.truncatingRemainder(dividingBy: 60))")
                     }
-                    Spacer()
-                    Image(systemName: "plus.circle")
-                        .font(.title)
                     
-                }.padding(.leading, 10)
-                
+                }
+
+
             }
             .padding()
             .foregroundStyle(.white)
