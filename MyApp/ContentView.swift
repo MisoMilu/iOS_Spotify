@@ -39,8 +39,8 @@ struct ContentView: View {
                             .font(.caption)
                     }
                     Spacer()
-                    Image("plus.circle")
-                        .font(.largeTitle)
+                    Image(systemName: "plus.circle")
+                        .font(.title)
                     
                 }.padding(.leading, 10)
                 
