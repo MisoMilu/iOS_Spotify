@@ -8,7 +8,7 @@ struct ContentView: View {
     var body: some View {
         //Build all of spotify in here
         ZStack{
-            Color(.green)
+            LinearGradient(gradient: Gradient(colors: [Color(red:56/255, green:105/255, blue:53/255), Color(red:31/255, green:50/255, blue:50/255)]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack(spacing: 60){
                 HStack(spacing: 100){
@@ -26,10 +26,9 @@ struct ContentView: View {
                     // keep orginal ratio, and dont crop it
                     .scaledToFit()
                     // always clip before padding?
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .clipShape(RoundedRectangle(cornerRadius: 7))
                     .shadow(radius: 10)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
+                    
                 VStack{
                     HStack{
                         VStack(alignment: .leading){
@@ -90,15 +89,16 @@ struct ContentView: View {
                             Image(systemName: "desktopcomputer").foregroundStyle(Color(red:100/255,green:209/255,blue:110/255))
                             Text("Web Player (Chrome)").font(.caption2).foregroundStyle(Color(red:100/255,green:209/255,blue:110/255))
                             Spacer()
-                            Image(systemName: "square.and.arrow.up")
+                            Image(systemName: "square.and.arrow.up").padding(.trailing)
                             Image(systemName: "list.bullet")
                             
                         }.padding(.top, 3)
                     }
-                }.padding(.leading, 10)
-                    .padding(.trailing, 10)
+                }.padding(.leading, 20)
+                    .padding(.trailing, 20)
+                Spacer()
             }
-            .padding()
+            
             .foregroundStyle(.white)
         }
     }
